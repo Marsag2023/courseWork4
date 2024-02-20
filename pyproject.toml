@@ -1,14 +1,18 @@
 [tool.poetry]
-name = "coursework4"
+name = "src"
 version = "0.1.0"
 description = ""
-authors = ["mars aygistov <m.aygistov@mail.ru>"]
-license = "MIT"
+authors = ["Marsag2023 <m.aygistov@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.12"
+requests = "^2.31.0"
 
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.1"
+pytest-cov = "^4.1.0"
 
 [build-system]
 requires = ["poetry-core"]
