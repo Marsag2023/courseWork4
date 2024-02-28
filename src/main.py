@@ -17,11 +17,11 @@ def user_interaction():
             if len(file_vacant) != 0:
                 break
         except Exception:
-            print("Попробуйте выбрать другой город или специальность")
+            print("Ошибка ввода")
     vacancies_filter = DataProcessing()  # создаем экземпляр класса фильтрации информации от НН.ру
     vacancies_filter.save_info()  # фильтруем информацию от НН.ру и записываем в файл
     payment = vacancies_filter.sort_by_payment()  # сортировка вакансий по начальной зарплате
-    output_vacancies = SummaryInformation(payment)   # вывод информации на экран, в файлы JSON, CSV, Exsel
+    output_vacancies = SummaryInformation(payment)   # вывод информации на кран, в файлы JSON, CSV, Exsel
     output_vacancies.output_screen()  # Выводит информацию на экран
     output_vacancies.output_file_json()  # Выводит информацию в файл json
     output_vacancies.output_file_csv()  # Выводит информацию в файл csv

@@ -23,12 +23,12 @@ class GetVacancies(AbstractGet, MixinLog):
         response = requests.get(f"{self.url}", param_response)
         try:
             response.status_code == 200
-        except ValueError:
-            print("Вакансии не найдены")
+        except ConnectionError:
+            print("Вакансии не найдены\nПопробуйте выбрать другой город или специальность")
         else:
             self.all_vacancy = json.loads(response.text)['items']
         if len(self.all_vacancy) == 0:
-            print("Вакансии не найдены")
+            print("Вакансии не найдены\nПопробуйте выбрать другой город или специальность")
         else:
             with open("../data/all_vacancy.json", 'w', encoding='utf-8') as file:
                 file.write(json.dumps(self.all_vacancy, ensure_ascii=False))
