@@ -13,7 +13,7 @@ class DataProcessing(AbstractDP):
         self.payment_4 = []
         self.payment_5 = []
         self.payment_6 = []
-
+        self.payment_sort = []
     def save_info(self):
         """
         Фильтрует файл и сохраняет в файл  необходимые значения
@@ -99,18 +99,18 @@ class DataProcessing(AbstractDP):
             except ValueError:
                 print("Ошибка: введите корректное число")
         if choice == 1:
-            return self.payment_1
+            self.payment_sort = sorted(self.payment_1, key=lambda x: x['salary_to'],reverse=True)
         elif choice == 2:
-            return self.payment_2
+            self.payment_sort = sorted(self.payment_2, key=lambda x: x['salary_to'],reverse=True)
         elif choice == 3:
-            return self.payment_3
+            self.payment_sort = sorted(self.payment_3, key=lambda x: x['salary_to'],reverse=True)
         elif choice == 4:
-            return self.payment_4
+            self.payment_sort = sorted(self.payment_4, key=lambda x: x['salary_to'],reverse=True)
         elif choice == 5:
-            return self.payment_5
+            self.payment_sort = sorted(self.payment_5, key=lambda x: x['salary_to'],reverse=True)
         else:
-            return self.payment_6
-
+            self.payment_sort = sorted(self.payment_6, key=lambda x: x['salary_to'],reverse=True)
+        return self.payment_sort
     def delete_of_file(self):
         pass
 
